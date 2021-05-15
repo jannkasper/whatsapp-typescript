@@ -1,6 +1,10 @@
 import {Router, Application, Request, Response, NextFunction} from "express";
+import { listUsers } from "./controllers/user";
 
 const router: Router = Router();
+
+// users
+router.get("/users/:userExtId", listUsers);
 
 export default (app: Application) => {
     app.use("/api", router);
