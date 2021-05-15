@@ -1,11 +1,38 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es6",
     "moduleResolution": "node",
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "strict": true,
     "sourceMap": true,
-    "outDir": "dist"
+    "declaration": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "typeRoots": ["node_modules/@types"],
+    "jsx": "react",
+    "baseUrl":"node_modules",
+    "paths":{
+//      "express":["@types/express"],
+//      "express-form-data":["@types/express-form-data"],
+//      "jsonwebtoken":["@types/jsonwebtoken"],
+//      "morgan":["@types/morgan"],
+//      "socket.io":["@types/socket.io"],
+//      "uuidv4":["@types/uuidv4"]
+    }
   },
-  "lib": ["es2015"]
+  "include": [
+    "**/*",
+//    "src/**/*.tsx",
+//    "global.d.ts"
+  ],
+  "exclude": [
+    "node_modules/*",
+    "dist/**/*"
+
+  ]
 }
