@@ -1,10 +1,19 @@
 import {Router, Application, Request, Response, NextFunction} from "express";
-import { listUsers } from "./controllers/user";
+import {authenticate, listUsers, signup, validateUser, validateAuthorisation} from "./controllers/user";
+import {createMessage, loadMessages, validateMessage} from "./controllers/message";
 
 const router: Router = Router();
 
+// authentication
+router.post('/signup', validateUser, signup);
+router.post('/authenticate', validateAuthorisation, authenticate);
+
 // users
 router.get("/users/:userExtId", listUsers);
+
+// messages
+router.post("/message", validateMessage, createMessage);
+router.get("/messages/:userExtId", loadMessages);
 
 export default (app: Application) => {
     app.use("/api", router);
