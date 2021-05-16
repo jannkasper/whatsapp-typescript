@@ -9,5 +9,5 @@ const MessageSchema: Schema = new Schema({
     created: { type: Date, default: Date.now() }
 })
 
-const Message: Model<IMessage> = model('user', MessageSchema);
+const Message: Model<IMessage> = model('message', MessageSchema);
 export default Message
