@@ -3,7 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import formData from "express-form-data";
 import bodyParser from "body-parser";
-import setRoutes from "./routes.js";
+import setRoutes from "./routes";
 
 
 const app = express();

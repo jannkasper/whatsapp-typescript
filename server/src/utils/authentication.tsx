@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
-import config from "../config.js";
+import config from "../config";
 import { fromString } from "uuidv4";
-import Session from "../models/session.js";
-import User from "../models/user.js";
-import UserSession from "../models/userSession.js";
+import Session from "../models/session";
+import User from "../models/user";
+import UserSession from "../models/userSession";
 
 export const createToken = (user: IUser) => {
     return jwt.sign(

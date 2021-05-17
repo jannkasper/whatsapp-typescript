@@ -1,6 +1,6 @@
-import { getIO } from './index.js';
-import User from "./models/user.js";
-import { createMessage } from "./utils/message.js"
+import { getIO } from './index';
+import User from "./models/user";
+import { createMessage } from "./utils/message"
 
 export default class Socket {
     private _userExtId: any;

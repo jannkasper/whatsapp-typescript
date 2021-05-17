@@ -4,7 +4,7 @@ import Io from "socket.io";
 import mongoose from "mongoose";
 import config from "./config";
 import Socket from './socket';
-import app from "./app.js";
+import app from "./app";
 
 const protocol = config.protocol === 'http' ? http : https;
 const server = protocol.createServer(app);
