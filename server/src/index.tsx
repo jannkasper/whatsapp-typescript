@@ -1,6 +1,6 @@
 import http from "http";
 import https from "https";
-import { Server } from "socket.io";
+import Io from "socket.io";
 import mongoose from "mongoose";
 import config from "./config";
 import Socket from './socket';
@@ -9,7 +9,7 @@ import app from "./app.js";
 const protocol = config.protocol === 'http' ? http : https;
 const server = protocol.createServer(app);
 
-const io = new Server(server, {
+const io = Io(server, {
     pingInterval: 20000,
     pingTimeout: 5000,
 });

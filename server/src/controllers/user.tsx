@@ -51,7 +51,7 @@ export const signup = async (req: Request, res: Response) => {
             const decodedToken = jwtDecode<JwtPayload>(token);
             const expiresAt = decodedToken.exp;
 
-            // getIO().emit("USER_ENTER", { contact: savedUser });
+            getIO().emit("USER_ENTER", { contact: savedUser });
 
             if (process.env.JEST_WORKER_ID === undefined) {
                 await createExampleConversation(savedUser.externalIdentifier);
