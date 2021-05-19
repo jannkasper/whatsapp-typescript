@@ -1,3 +1,5 @@
+import {ApplicationState} from "../reducers";
+
 const convertImage = (imageFile: File): Promise<string> => {
     return new Promise((resolve) => {
         const reader = new FileReader();
@@ -10,7 +12,7 @@ const convertImage = (imageFile: File): Promise<string> => {
     });
 }
 
-export const prepare = (payload: { type: "image" | "text", value: File | string }, state: MainState): Promise<SendMessage> =>
+export const prepare = (payload: { type: "image" | "text", value: File | string }, state: ApplicationState): Promise<SendMessage> =>
     new Promise( async resolve => {
 
         const original: Message = {

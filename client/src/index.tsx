@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
+import { ConnectedRouter } from "connected-react-router";
 import { createBrowserHistory } from 'history'
-import './index.css';
 import App from './components/App/App';
 import configureStore from "./store";
-import {ConnectedRouter} from "connected-react-router";
+import './index.css';
 
 // We use hash history because this example is going to be hosted statically.
 // Normally you would use browser history.

@@ -5,8 +5,8 @@ import { ApplicationState } from "../reducers";
 
 export const fetchConversationsPending = () => ({ type: "FETCH_CONVERSATIONS_PENDING" });
 
-export const fetchConversationsSuccess = () => async (dispatch: Dispatch) => {
-    dispatch({ type: "FETCH_CONVERSATIONS_SUCCESS" });
+export const fetchConversationsSuccess = (payload: any) => async (dispatch: Dispatch) => {
+    dispatch({ type: "FETCH_CONVERSATIONS_SUCCESS", payload });
 };
 
 export const fetchConversationsError = (payload: any) => async (dispatch: Dispatch) => {
