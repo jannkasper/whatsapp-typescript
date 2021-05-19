@@ -1,4 +1,4 @@
-import { AnyAction } from "redux";
+import {AnyAction, Reducer} from "redux";
 
 const initialState: ConversationsState = {
     pending: false,
@@ -7,7 +7,7 @@ const initialState: ConversationsState = {
     conversationArray: [ ]
 }
 
-const conversations = (state = initialState, action: AnyAction) => {
+const reducer: Reducer<ConversationsState> = (state: ConversationsState = initialState, action: AnyAction) => {
     switch (action.type) {
         case "SELECT_CONVERSATION":
             let selectedConversation = state.conversationArray.find(conversation => conversation.contactExtId === action.payload.contactExtId);
@@ -22,7 +22,7 @@ const conversations = (state = initialState, action: AnyAction) => {
             }
         case "CREATE_MESSAGE":
             if (state.selectedConversation == null) {
-                return;
+                return state;
             }
             const updateConversation = {
                 ...state.selectedConversation,
@@ -59,8 +59,8 @@ const conversations = (state = initialState, action: AnyAction) => {
                 conversationArray: updateConversationArray
             }
         case "ENTER_SESSION_IDENTIFIER":
-            const updateConvWithSessionExtId = {
-                ...state.selectedConversation,
+            const updateConvWithSessionExtId: Conversation = {
+                ...state.selectedConversation as Conversation,
                 sessionExtId: action.payload.sessionExtId
             }
             return {
@@ -90,5 +90,4 @@ const conversations = (state = initialState, action: AnyAction) => {
     }
 }
 
-
-export default conversations
+export { reducer as ConversationsReducer }

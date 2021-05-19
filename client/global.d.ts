@@ -1,10 +1,4 @@
 
-declare interface MainState {
-    app: AppState,
-    contacts: ContactsState,
-    conversations: ConversationsState,
-    user: UserState,
-}
 declare interface AppState {
     openContactsNavigation: boolean
 }

@@ -1,11 +1,10 @@
-import { AnyAction } from "redux";
-
+import { AnyAction, Reducer } from "redux";
 
 const initialState: AppState = {
     openContactsNavigation: false
 }
 
-const app = (state = initialState, action: AnyAction) => {
+const reducer: Reducer<AppState> = (state: AppState = initialState, action: AnyAction) => {
     switch (action.type) {
         case "OPEN_CONTACTS_NAVIGATION":
             return {
@@ -22,4 +21,4 @@ const app = (state = initialState, action: AnyAction) => {
     }
 }
 
-export default app
+export { reducer as AppReducer }

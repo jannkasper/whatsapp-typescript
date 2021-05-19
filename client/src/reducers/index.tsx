@@ -1,11 +1,24 @@
-import {combineReducers, AnyAction} from "redux";
-import app from "./app";
-import contacts from "./contacts";
-import conversations from "./conversations";
-import user from "./user";
+import { combineReducers } from "redux";
+import { connectRouter } from "connected-react-router";
+import { AppReducer } from "./app";
+import { ContactsReducer } from "./contacts";
+import { ConversationsReducer } from "./conversations";
+import { UserReducer } from "./user";
+import { History } from 'history'
 
-const appReducer = combineReducers({ app, contacts, conversations, user });
+export interface ApplicationState {
+    app: AppState,
+    contacts: ContactsState,
+    conversations: ConversationsState,
+    user: UserState,
+}
 
-const rootReducer = (state: any, action: AnyAction) => appReducer(state, action);
-
-export default rootReducer
+export const createRootReducer = (history: History) => {
+    return combineReducers({
+        app: AppReducer,
+        contacts: ContactsReducer,
+        conversations: ConversationsReducer,
+        user: UserReducer,
+        router: connectRouter(history)
+    })
+}

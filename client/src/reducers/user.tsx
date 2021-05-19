@@ -1,4 +1,4 @@
-import { AnyAction } from "redux";
+import {AnyAction, Reducer} from "redux";
 
 const initialState: UserState = {
     externalIdentifier: "",
@@ -8,7 +8,7 @@ const initialState: UserState = {
     profileImage : undefined,
 }
 
-const user = (state = initialState, action: AnyAction) => {
+const reducer: Reducer<UserState> = (state: UserState = initialState, action: AnyAction) => {
     switch (action.type) {
         case "USER_AUTHENTICATION":
             return {
@@ -19,4 +19,4 @@ const user = (state = initialState, action: AnyAction) => {
     }
 }
 
-export default user
+export { reducer as UserReducer }

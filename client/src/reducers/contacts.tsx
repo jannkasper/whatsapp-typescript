@@ -1,4 +1,4 @@
-import { AnyAction } from "redux";
+import { AnyAction, Reducer } from "redux";
 
 const initialState: ContactsState = {
     pending: false,
@@ -7,12 +7,16 @@ const initialState: ContactsState = {
     contactArray: []
 }
 
-const contacts = (state = initialState, action: AnyAction) => {
+// export interface ContactsAction extends AnyAction {
+//     payload?: any
+// }
+
+const reducer: Reducer<ContactsState> = (state: ContactsState = initialState, action: AnyAction) => {
     switch (action.type) {
         case "SET_SELECTED_CONTACT":
             return {
                 ...state,
-                selectedContact: state.contactArray.find(element => element.externalIdentifier === action.payload.contactExtId)
+                selectedContact: state.contactArray.find(element => element.externalIdentifier === action.payload.contactExtId) as Contact
             }
         case "FETCH_CONTACTS_PENDING":
             return {
@@ -41,4 +45,4 @@ const contacts = (state = initialState, action: AnyAction) => {
     }
 }
 
-export default contacts
+export { reducer as ContactsReducer}

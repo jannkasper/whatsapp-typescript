@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import { prepare as prepareMessage } from "../util/message"
+import { ApplicationState } from "../reducers";
 // import { getSocket } from "../util/socket";
-
 
 export const fetchConversationsPending = () => ({ type: "FETCH_CONVERSATIONS_PENDING" });
 
@@ -22,7 +22,7 @@ export const receiveMessage = (payload: { message: Message }) => async (dispatch
 };
 
 export const createMessage = (payload: { type: "image" | "text", value: File | string }) => async (dispatch: Dispatch, getState: Function) => {
-    const state: MainState = getState();
+    const state: ApplicationState = getState();
     const message: SendMessage = await prepareMessage(payload, state);
 
     dispatch({ type: "CREATE_MESSAGE", payload: { message: message.original }});
