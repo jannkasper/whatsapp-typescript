@@ -3,7 +3,7 @@ import {AnyAction, Reducer} from "redux";
 const initialState: ConversationsState = {
     pending: false,
     error: null,
-    selectedConversation: null,
+    selectedConversation: undefined,
     conversationArray: [ ]
 }
 

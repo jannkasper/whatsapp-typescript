@@ -3,7 +3,7 @@ import { AnyAction, Reducer } from "redux";
 const initialState: ContactsState = {
     pending: false,
     error: null,
-    selectedContact: null,
+    selectedContact: undefined,
     contactArray: []
 }
 

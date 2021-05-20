@@ -6,14 +6,14 @@ declare interface AppState {
 declare interface ContactsState {
     pending: boolean,
     error: any,
-    selectedContact: Contact | null,
+    selectedContact: Contact | undefined,
     contactArray: Contact[]
 }
 
 declare interface ConversationsState {
     pending: boolean,
     error: any,
-    selectedConversation: Conversation | null,
+    selectedConversation: Conversation | undefined,
     conversationArray: Conversation[]
 }
 

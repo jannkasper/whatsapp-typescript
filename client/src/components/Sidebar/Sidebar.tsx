@@ -5,8 +5,9 @@ import Notification from "./notification";
 import SearchInput from "./search";
 import ContactGroup from "./contactGroup";
 import ContactsNavigation from "../ContactsNavigation";
+import { SidebarProps } from "./index";
 
-const Sidebar: React.FC = ({  }) => {
+const Sidebar: React.FC<SidebarProps> = ({ selectedContact, contactArray }) => {
     const [searchText, setSearchText] = useState("");
 
     return (
@@ -19,7 +20,11 @@ const Sidebar: React.FC = ({  }) => {
                 searchText={searchText}
                 setSearchText={setSearchText}
             />
-            <ContactGroup chats={[]} selectedContact={undefined} isSidebar={undefined} />
+            <ContactGroup
+                chats={contactArray.filter(contact => contact.username.toLowerCase().includes(searchText.toLowerCase()))}
+                selectedContact={selectedContact}
+                isSidebar={true}
+            />
         </SidebarWrapper>
     )
 }

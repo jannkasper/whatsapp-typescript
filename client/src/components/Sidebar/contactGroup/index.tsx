@@ -4,7 +4,7 @@ import Contact from "../contact";
 
 interface ContactGroupProps {
     chats:(Contact & {message?: Message})[],
-    selectedContact?: Contact & {message: Message},
+    selectedContact?: Contact & {message?: Message},
     isSidebar?: boolean
 }
 
