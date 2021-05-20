@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Contact from "../contact";
 
 interface ContactGroupProps {
-    chats:(Contact & {message: Message})[],
+    chats:(Contact & {message?: Message})[],
     selectedContact?: Contact & {message: Message},
     isSidebar?: boolean
 }

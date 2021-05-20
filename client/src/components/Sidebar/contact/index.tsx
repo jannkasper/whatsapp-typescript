@@ -11,7 +11,7 @@ interface ContactProps {
     name: string
     profileImage?: Image
     status: string
-    lastMessage: Message,
+    lastMessage?: Message,
     isSelected: boolean
 }
 

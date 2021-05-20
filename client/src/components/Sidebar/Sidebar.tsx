@@ -4,12 +4,14 @@ import Header from "./header";
 import Notification from "./notification";
 import SearchInput from "./search";
 import ContactGroup from "./contactGroup";
+import ContactsNavigation from "../ContactsNavigation";
 
 const Sidebar: React.FC = ({  }) => {
     const [searchText, setSearchText] = useState("");
 
     return (
         <SidebarWrapper>
+            <ContactsNavigation />
             <Header />
             <Notification />
             <SearchInput
