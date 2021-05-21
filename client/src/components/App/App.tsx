@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Home from "../Home";
 import Sidebar from "../Sidebar";
 import { AppProps } from "./index";
+import Content from "../Content";
 
 const App: React.FC<AppProps> = ({
     showPopup,
@@ -23,7 +24,7 @@ const App: React.FC<AppProps> = ({
         <AppWrapper isBlur={showPopup} zoomOut={!showPopup}>
             <InnerWrapper>
                 <Sidebar/>
-                <Home/>
+                { hasSelectedConversation ? <Content/> : <Home /> }
             </InnerWrapper>
         </AppWrapper>
     );
@@ -52,7 +53,7 @@ const AppWrapper = styled("div")<AppWrapperProps>`
   @media (min-width: 1440px) {  
     top: 19px;
     width: 1400px;
-    height: calc(100% - 38px);  
+    height: calc(100vh - 38px);  
   }
 `
 
