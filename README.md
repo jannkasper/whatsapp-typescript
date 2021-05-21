@@ -1,46 +1,158 @@
-# Getting Started with Create React App
+## Whatsapp Clone
+- Live: http://whatsapp-jannkasper.vercel.app/ (be patient, server is sleeping)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Product Name Screen Shot][product-screenshot]](https://github.com/jannkasper/whatsapp-react-clone/blob/master/images/video.gif)
 
-## Available Scripts
+## :rocket: Tech Stack
 
-In the project directory, you can run:
+- Typescript
+- ReactJs
+- @emotion/styled
+- Redux
+- Socket.io
+- NodeJs
+- Axios
+- Express
+- MongoDB
+- Mongoose
+- Testing Library
+- Jest
 
-### `yarn start`
+## :warning: Prerequisite
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- node
+- npm
+- mongodb
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## :cd: How to run local
 
-### `yarn test`
+```bash
+# Clone this repository
+$ git clone https://github.com/jannkasper/whatsapp-typescript
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Go into server
+$ cd whatsapp-typescript/server
 
-### `yarn build`
+# Create configuration file
+$ echo 'DATABASE_URL=<mongodb-url>' > .env
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Install dependencies
+$ npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Start the backend server
+$ npm run dev
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# On another terminal, go to the client folder
+$ cd whatsapp-typescript/client
 
-### `yarn eject`
+# Create configuration file
+$ echo 'REACT_APP_SITE_NAME=<server-host>' > .env
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Install dependencies
+$ npm install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Start the frontend client
+$ npm run start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## :mag_right: Testing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Make sure mongodb is running before testing the server.
 
-## Learn More
+```bash
+$ cd whatsapp-typescript/server
+$ #Create configuration file
+$ echo 'TEST_DATABASE_URL=<mongodb-url>' > .env
+$ npm run test
+$
+$ cd ../client
+$ npm run test
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## :globe_with_meridians: Deploy
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Deploying Server App on Heroku
+
+-  You will need to have setup a [MongoDB Atlas account and database](https://docs.atlas.mongodb.com/getting-started/).
+- Make sure that the cluster has allowlisted connections from anywhere.
+- Create a [Heroku](https://dashboard.heroku.com/new-app) new app.
+- Go to app settings
+- Add the following enviroments.
+    - DATABASE_URL (to use your MongoDB connection string)
+- Add Nodejs to buildpacks
+
+-
+      # Go into the repository
+      $ cd whatsapp-typescript
+
+      # Heroku Setup
+      $ npm install -g heroku
+      $ heroku login
+      $ heroku git:remote -a your-app-name
+
+      # push subdirectory repository with subtree
+      $ git subtree push --prefix server heroku master
+
+#### Deploying Client App on Vercel
+
+- [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fjannkasper%2Fwhatsapp-typescript&env=REACT_APP_SITE_NAME)
+- Select client directory
+- Add heroku api url to REACT_APP_SITE_NAME enviorement
+- Finally deploy client application
+
+
+## :book: Directory Structure
+
+```
+├── app/
+│   ├── client/
+│   │   ├── public/
+│   │   ├── src/
+│   │   │   ├── __tests__/
+│   │   │   ├── actions/
+│   │   │   ├── components/
+│   │   │   ├── img/
+│   │   │   ├── reducers/
+│   │   │   ├── store/
+│   │   │   ├── util/
+│   │   │   ├── index.css
+│   │   │   ├── index.js
+│   │   │   └── setupTests.js
+│   │   │
+│   │   ├── .env
+│   │   ├── global.d.ts
+│   │   ├── jest.config.ts
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   ├── server/
+│   │   ├── src/
+│   │   │   ├── controllers/
+│   │   │   ├── models/
+│   │   │   ├── utils/
+│   │   │   ├── app.js
+│   │   │   ├── config.js
+│   │   │   ├── index.js
+│   │   │   ├── routes.js
+│   │   │   └── socket.js
+│   │   │
+│   │   ├── tests/
+│   │   ├── .env
+│   │   ├── .global.d.ts
+│   │   ├── jest.config.ts
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   └── tslint.json
+│   │
+```
+
+## :memo: License
+
+This project is made available under the MIT License.
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[product-screenshot]: images/video.gif
