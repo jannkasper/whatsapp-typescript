@@ -2,8 +2,6 @@ import { connect, ConnectedProps } from "react-redux";
 import App from "./App";
 import { ApplicationState } from "../../reducers";
 import { receiveMessage, receiveNewContact } from "../../actions";
-import fetchContacts from "../../store/fetchContacts";
-import fetchConversations from "../../store/fetchConversations";
 
 const mapStateToProps = (state: ApplicationState) => ({
     showPopup: !Boolean(state.user.externalIdentifier),
@@ -15,10 +13,6 @@ const mapStateToProps = (state: ApplicationState) => ({
 const mapDispatchToProps = {
     receiveMessage,
     receiveNewContact,
-
-    //temporary
-    fetchContacts,
-    fetchConversations
 }
 
 const connector = connect(mapStateToProps, mapDispatchToProps)

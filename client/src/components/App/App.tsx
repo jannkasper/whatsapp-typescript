@@ -6,6 +6,8 @@ import { AppProps } from "./index";
 import Content from "../Content";
 import Popup from "../Popup";
 import ProgressBar from "../ProgressBar";
+import { connect as connectSocket } from "../../util/socket";
+import { Socket } from "socket.io-client";
 
 const App: React.FC<AppProps> = ({
     showPopup,
@@ -14,14 +16,27 @@ const App: React.FC<AppProps> = ({
     receiveMessage,
     receiveNewContact,
     isLoading,
-    completed,
-    fetchContacts,
-    fetchConversations
+    completed
 }) => {
     useEffect(() => {
-        fetchContacts(userExtId);
-        fetchConversations(userExtId);
-    }, [userExtId]);
+        if (userExtId) {
+            const socket = connectSocket(userExtId);
+            handleSocket(socket);
+        }
+    }, [userExtId])
+
+    function handleSocket (socket: Socket) {
+        socket.on('disconnect', () => {
+        });
+
+        socket.on("MESSAGE", payload => {
+            receiveMessage(payload);
+        })
+
+        socket.on("USER_ENTER", payload => {
+            receiveNewContact(payload);
+        })
+    }
 
     return (
         <AppWrapper>
