@@ -76,7 +76,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleChangeMode, receiveAuthenti
                         <Button type="submit">Log In</Button>
                         <LineStyle />
                         <Text>
-                            Don't have an account? <Anchor href="!#" onClick={(e) => handleChangeMode(e)}>Sing up</Anchor>
+                            Don't have an account? <Anchor href="!#" onClick={(e) => handleChangeMode(e)}>Sign up</Anchor>
                         </Text>
                     </FormWrapper>
                 )
